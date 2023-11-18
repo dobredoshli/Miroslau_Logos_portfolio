@@ -54,9 +54,9 @@
 												<li><a href="naruzhnaya-reklama.html">Наружная реклама</a></li>
 												<li><a href="reklama-v-liftakh.html">Реклама в лифтах</a></li>
 											</ul>
-										</li>
-										<li><a href="service.html">Услуги</a></li>-->
-										<li id="scrollDown"><a href="#bottom" >Contacts</a></li> 
+										</li>-->
+										<!-- Замените id на class -->
+										<li><a href="#bottom" id="contacts-link">Contacts</a></li>
 										<li><a href="https://your-google-form-link">Send A Review</a></li>
 									</ul>
 								</nav>
@@ -651,7 +651,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xl-5 col-lg-5 col-md-5 mb-20">
-							<div class="footer-icon">
+							<div class="footer-icon" id="bottom">
 								<a href="mailto:miroslavrabota128@gmail.com" target="_blank" style="background-color: #43506c;"><span class="fas fa-envelope"></span></a>
 								<a href="https://www.instagram.com/miroslav_shaveldesign/" target="_blank" style="background-color: #43506c;"><span class="fab fa-instagram"></span></a>
 								<a href="https://t.me/DesignMastera" target="_blank" style="background-color: #43506c;"><span class="fas fa-paper-plane"></span></a>
@@ -693,7 +693,29 @@
             }
             });
         </script>
-		
+		<script>
+			$(document).ready(function() {
+			  // Add smooth scrolling to all links with the ID "contacts-link"
+			  $("#contacts-link").on('click', function(event) {
+				if (this.hash !== "") {
+				  // Prevent default anchor click behavior
+				  event.preventDefault();
+		  
+				  // Store hash
+				  var hash = this.hash;
+		  
+				  // Using jQuery's animate() method to add smooth page scroll
+				  $('html, body').animate({
+					scrollTop: $(hash).offset().top
+				  }, 800, function() {
+					// Add hash (#) to URL when done scrolling (default click behavior)
+					window.location.hash = hash;
+				  });
+				}
+			  });
+			});
+		  </script>
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
         <script src="js/vendor/modernizr-3.5.0.min.js"></script>
         <script src="js/vendor/jquery-1.12.4.min.js"></script>
         <script src="js/popper.min.js"></script>
@@ -706,7 +728,6 @@
         <script src="js/ajax-form.js"></script>
         <script src="js/wow.min.js"></script>
 		<script src="js/jquery.scrollUp.min.js"></script>
-		<script src="js/jquery.scrollDown.min.js"></script>
         <script src="js/imagesloaded.pkgd.min.js"></script>
         <script src="js/jquery.magnific-popup.min.js"></script>
         <script src="js/plugins.js"></script>
